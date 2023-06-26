@@ -38,7 +38,7 @@ function createMoviesEl(movie, movieHolderEl){
     const nameEl = createHtmlEl("h4", movieLinkEl, "", "", movie.name);
 
     movieLinkEl.onclick = ()=>{
-        fetchApiMovieAvailability(movieLinkEl, movieEl.dataset.d);
+        fetchApiMovieAvailability(movieEl.dataset.d);
     }
 }
 
@@ -120,7 +120,6 @@ function successPurchaseMsg(){
 
 const fetchAPIMovieList = ()=>{
     const loaderDiv = createHtmlEl("div", mainEl, "", "loader");
-    createHtmlEl("div", loaderDiv);
     fetchMovieList()
     .then((data)=>{
         loaderDiv.remove();
@@ -131,13 +130,12 @@ const fetchAPIMovieList = ()=>{
     })
 }
 
-const fetchApiMovieAvailability = (parentEl,movie)=>{
-    const loaderDiv = createHtmlEl("div", parentEl, "", "loader");
-    createHtmlEl("div", loaderDiv);
+const fetchApiMovieAvailability = (movie)=>{
+    seatSelectorEl.classList.remove("v-none")
+    const loaderDiv = createHtmlEl("div", bookerEl, "", "loader");
     fetchMovieAvailability(movie)
     .then((data)=>{
         loaderDiv.remove();
-        seatSelectorEl.classList.remove("v-none")
         
         gridHolderEl.innerHTML = "";
         createBookingGridEl(1,data);
