@@ -134,7 +134,7 @@ const fetchAPIMovieList = ()=>{
 }
 
 const fetchApiMovieAvailability = (parentEl,movie)=>{
-    const loaderDiv = createHtmlEl("div", parentEl, "", "loader");
+    const loaderDiv = createHtmlEl("div", parentEl.parentElement, "", "loader");
     createHtmlEl("div", loaderDiv);
     fetchMovieAvailability(movie)
     .then((data)=>{
