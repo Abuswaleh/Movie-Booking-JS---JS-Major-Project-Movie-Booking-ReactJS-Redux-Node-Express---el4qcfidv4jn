@@ -138,7 +138,7 @@ const fetchApiMovieAvailability = (parentEl,movie)=>{
     createHtmlEl("div", loaderDiv);
     fetchMovieAvailability(movie)
     .then((data)=>{
-        loader.remove();
+        //loader.remove();
         seatSelectorEl.classList.remove("v-none")
         
         gridHolderEl.innerHTML = "";
