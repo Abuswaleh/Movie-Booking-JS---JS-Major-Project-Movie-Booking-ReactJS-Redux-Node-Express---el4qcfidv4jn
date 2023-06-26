@@ -123,7 +123,7 @@ const fetchAPIMovieList = ()=>{
     createHtmlEl("div", loaderDiv);
     fetchMovieList()
     .then((data)=>{
-        loader.remove();
+        loaderDiv.remove();
         const movieHolderEl = createHtmlEl("div", mainEl, "movie-holder");
         data.forEach(movie => {
             createMoviesEl(movie,movieHolderEl);
@@ -136,7 +136,7 @@ const fetchApiMovieAvailability = (parentEl,movie)=>{
     createHtmlEl("div", loaderDiv);
     fetchMovieAvailability(movie)
     .then((data)=>{
-        loader.remove();
+        loaderDiv.remove();
         seatSelectorEl.classList.remove("v-none")
         
         gridHolderEl.innerHTML = "";
