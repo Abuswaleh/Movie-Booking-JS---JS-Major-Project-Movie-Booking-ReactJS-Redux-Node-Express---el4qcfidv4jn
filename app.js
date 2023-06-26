@@ -46,7 +46,7 @@ function createBookingGridEl(seatStart, availability){
     selectedSeats = [];
     const gridEl = createHtmlEl("div",gridHolderEl, "booking-grid");
     for(let i=seatStart; i<seatStart+12; i++){
-        const cellEl = createHtmlEl("div", gridEl, "grid-cell", "booking-grid-"+i, i);
+        const cellEl = createHtmlEl("div", gridEl, "", "booking-grid-"+i, i);
         
         if(availability.includes(i)){
             cellEl.classList.add("unavailable-seat")
