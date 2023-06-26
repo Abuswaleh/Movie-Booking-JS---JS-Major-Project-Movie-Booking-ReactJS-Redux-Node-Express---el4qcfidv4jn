@@ -24,8 +24,7 @@ function createHtmlEl(nameEl, parentEl, classEl=false, idEl=false, textEl=false)
     return elem;
 }
 
-function createMoviesEl(movie){
-    const movieHolderEl = createHtmlEl("div", mainEl, "movie-holder");
+function createMoviesEl(movie, movieHolderEl){
 
     const movieLinkEl = createHtmlEl("a", movieHolderEl, "movie-link");
     //movieLinkEl.href = "/"+movie.name; //dont needed
@@ -39,7 +38,8 @@ function createMoviesEl(movie){
     const nameEl = createHtmlEl("h4", movieLinkEl, "", "", movie.name);
 
     movieEl.onclick = (e)=>{
-        fetchApiMovieAvailability(e.target.parentElement.dataset.d);
+        const parentEl = e.target.parentElement;
+        fetchApiMovieAvailability(parentEl, parentEl.dataset.d);
     }
 }
 
@@ -126,14 +126,15 @@ const fetchAPIMovieList = ()=>{
     fetchMovieList()
     .then((data)=>{
         loader.remove();
+        const movieHolderEl = createHtmlEl("div", mainEl, "movie-holder");
         data.forEach(movie => {
-            createMoviesEl(movie);
+            createMoviesEl(movie,movieHolderEl);
         });
     })
 }
 
-const fetchApiMovieAvailability = (movie)=>{
-    const loaderDiv = createHtmlEl("div", mainEl, "", "loader");
+const fetchApiMovieAvailability = (parentEl,movie)=>{
+    const loaderDiv = createHtmlEl("div", parentEl, "", "loader");
     createHtmlEl("div", loaderDiv);
     fetchMovieAvailability(movie)
     .then((data)=>{

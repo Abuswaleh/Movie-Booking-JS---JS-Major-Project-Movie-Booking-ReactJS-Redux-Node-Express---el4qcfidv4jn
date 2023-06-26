@@ -55,12 +55,24 @@ body{
     color: rgb(255,255,255);
 }
 
+
+.main-container{
+    display: flex;
+    justify-content: center;
+}
 .movie-holder{
+    display: flex;
+    margin: 30px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap:20px;
+}
+.movie-holder>a{
     box-shadow: 0 0 10px 5px #878787;
     border-radius: 10px;
     transition: scale 0.3s;
 }
-.movie-holder:hover{
+.movie-holder>a:hover{
     scale: 1.05;
 }
 .movie-img-wrapper{
@@ -89,13 +101,6 @@ body{
     color: #ffffff;
     background-color: #363636;
     border-radius: 0 0 10px 10px;
-}
-.main-container{
-    margin: 50px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap:20px;
 }
 #booker{
     margin: 50px;
