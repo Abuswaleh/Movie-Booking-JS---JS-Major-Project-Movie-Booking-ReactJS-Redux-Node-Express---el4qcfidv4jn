@@ -97,14 +97,13 @@ function confirmPurchaseForm(){
     const divBtnEl = createHtmlEl("div", formEl);
     const submitBtn = createHtmlEl("button", divBtnEl, "", "", "Purchase");
     submitBtn.type = "submit";
-    submitBtn.onclick = ()=>{
-        const phone = telEl.value;
-        const email = emailEl.value;
-        successPurchaseMsg(phone, email);
-    }
+    formEl.onsubmit = successPurchaseMsg;
 }
 
-function successPurchaseMsg(phone, email){
+function successPurchaseMsg(){
+    const email = bookerEl.querySelector("input[type='email']").value;
+    const phone = bookerEl.querySelector("input[type='tel']").value;
+
     bookerEl.innerHTML = "";
     const successEl = createHtmlEl("div", bookerEl, "", "Success", "Booking Details");
 
