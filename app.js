@@ -37,9 +37,8 @@ function createMoviesEl(movie, movieHolderEl){
     movieImgEl.style.backgroundSize = "cover";
     const nameEl = createHtmlEl("h4", movieLinkEl, "", "", movie.name);
 
-    movieEl.onclick = (e)=>{
-        const parentEl = e.target.parentElement;
-        fetchApiMovieAvailability(parentEl, parentEl.dataset.d);
+    movieLinkEl.onclick = ()=>{
+        fetchApiMovieAvailability(movieLinkEl, movieEl.dataset.d);
     }
 }
 
@@ -134,11 +133,11 @@ const fetchAPIMovieList = ()=>{
 }
 
 const fetchApiMovieAvailability = (parentEl,movie)=>{
-    const loaderDiv = createHtmlEl("div", parentEl.parentElement, "", "loader");
+    const loaderDiv = createHtmlEl("div", parentEl, "", "loader");
     createHtmlEl("div", loaderDiv);
     fetchMovieAvailability(movie)
     .then((data)=>{
-        //loader.remove();
+        loader.remove();
         seatSelectorEl.classList.remove("v-none")
         
         gridHolderEl.innerHTML = "";
