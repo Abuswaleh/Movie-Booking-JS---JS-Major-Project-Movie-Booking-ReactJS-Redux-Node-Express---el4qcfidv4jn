@@ -106,7 +106,7 @@ function successPurchaseMsg(){
     const phone = bookerEl.querySelector("input[type='tel']").value;
 
     bookerEl.innerHTML = "";
-    const successEl = createHtmlEl("div", bookerEl, "", "Success", "Booking Details");
+    const successEl = createHtmlEl("div", bookerEl, "", "success", "Booking Details");
 
     createHtmlEl("p", successEl, "", "", "Seats: "+selectedSeats.join(","));
     createHtmlEl("p", successEl, "", "", "Phone number: "+phone);
