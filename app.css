@@ -39,11 +39,15 @@ body{
     border-radius: 5px;
     padding: 5px;
 }
-.nav-links a{
+
+a{
     text-decoration: none;
     color: rgb(255,255,255);
 }
 
+.nav-links a:hover{
+    text-decoration: underline;
+}
 
 .main-container{
     display: flex;
