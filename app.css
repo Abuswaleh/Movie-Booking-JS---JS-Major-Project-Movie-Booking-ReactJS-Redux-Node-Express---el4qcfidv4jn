@@ -56,10 +56,11 @@ a{
 }
 .movie-holder{
     display: flex;
-    margin: 30px;
+    margin: 20px;
     flex-wrap: wrap;
     justify-content: space-evenly;
     gap:20px;
+    width: 100%;
 }
 .movie-holder>a{
     box-shadow: 0 0 10px 5px #878787;
@@ -97,7 +98,7 @@ a{
     border-radius: 0 0 10px 10px;
 }
 #booker{
-    margin: 50px;
+    margin: 10px;
     text-align: center;
 }
 #booker>h3{
