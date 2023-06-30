@@ -78,7 +78,7 @@ function createBookingGridEl(seatStart, availability){
 
 function confirmPurchaseForm(){
     bookerEl.innerHTML = "";
-    const confirmSeatEl = createHtmlEl("div", bookerEl, "confirm-purchase");
+    const confirmSeatEl = createHtmlEl("div", bookerEl, "", "confirm-purchase");
     const headerText = "Confirm your booking for seat numbers:"+selectedSeats.join(",");
     const headerEl = createHtmlEl("h3", confirmSeatEl, "", "", headerText); 
 
