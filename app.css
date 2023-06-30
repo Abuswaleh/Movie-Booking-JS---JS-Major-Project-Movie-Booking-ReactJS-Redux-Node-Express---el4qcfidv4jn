@@ -148,7 +148,7 @@ a{
     cursor: not-allowed;
 }
 .selected-seat{
-    border: 4px solid #363636;
+    border: 4px outset rgb(0,0,0);
     padding: 13px;
 }
 #customer-detail-form{
