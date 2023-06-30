@@ -20,14 +20,16 @@ function createHtmlEl(nameEl, parentEl, classEl=false, idEl=false, textEl=false)
     if(textEl){
         elem.textContent = textEl;
     }
-    parentEl.appendChild(elem);
+    if(parentEl){
+        parentEl.appendChild(elem);
+    }
     return elem;
 }
 
 function createMoviesEl(movie, movieHolderEl){
 
     const movieLinkEl = createHtmlEl("a", movieHolderEl, "movie-link");
-    movieLinkEl.href = "/"+movie.name; //dont needed
+    movieLinkEl.href = "/"+movie.name;
 
     const movieEl = createHtmlEl("div", movieLinkEl, "movie");
     movieEl.setAttribute("data-d", movie.name);
@@ -133,12 +135,13 @@ const fetchAPIMovieList = ()=>{
 
 const fetchApiMovieAvailability = (movie)=>{
     seatSelectorEl.classList.remove("v-none")
-    const loaderDiv = createHtmlEl("div", bookerEl, "", "loader");
+    gridHolderEl.innerHTML = "";
+    const loaderDiv = createHtmlEl("div", "", "", "loader");
+    bookerEl.insertBefore(loaderDiv, bookerEl.children[1]);
     fetchMovieAvailability(movie)
     .then((data)=>{
         loaderDiv.remove();
-        
-        gridHolderEl.innerHTML = "";
+
         createBookingGridEl(1,data);
         createBookingGridEl(13,data);
     });
